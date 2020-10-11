@@ -1,0 +1,13 @@
+.trending-games{
+    background: transparent;
+    margin-top: 50px;
+}
+.title-trending{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px; padding-bottom: 20px;
+
+    font-size: 35px;
+    text-align: center;
+    color: #FFF;
+}

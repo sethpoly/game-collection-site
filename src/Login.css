@@ -3,6 +3,7 @@
 }
 body{
     min-height: 50vh;
+    overflow-x: hidden;
     background-color: #333333; 
 }
 .nav-stripped{
@@ -27,6 +28,10 @@ body{
     font-size: 28px;
     font-weight: bold;
     color: rgb(141, 138, 138);
+}
+.btn-return:hover{
+    cursor: pointer;
+    color: #FFF;
 }
 .login-container{
     width: 70%;
@@ -70,11 +75,23 @@ body{
     border: 2px solid var(--red-color);
     background: none;
 }
+.btn-submit:hover{
+    cursor: pointer;
+    background: var(--red-color);
+}
+.toggle-login{
+    color: #e27876;
+}
+.toggle-login:hover {
+    cursor: pointer;
+    color: #FFF;
+}
+
 p{
     display: block;
     float: left;
     margin-left: 40px;    
-    padding: 4px;
+    padding: 5px;
 
     color: #FFF;
 }
@@ -93,5 +110,10 @@ p{
     }
     .btn-submit{
         width: 150px;
+    }
+    p{
+        margin-left: 20px;
+
+        font-size: 14px;
     }
   }
