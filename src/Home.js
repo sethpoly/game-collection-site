@@ -11,6 +11,7 @@ import axios from 'axios';
 
 function Home() {
 
+  
   // Twitch oAUTH keys for IGDB API
   const APP_ID = "ateo54zxrf0g2skykiad16p6xiwtkp";
   const APP_SECRET = "gohjb2bnw7l405gj9mhsrq574co9uv";
@@ -23,9 +24,9 @@ function Home() {
       hltbService.search('Nioh').then(result => console.log(result));
   }, []);
 
-  // useEffect(() => {
-  //     getToken();
-  // }, []);
+  useEffect(() => {
+      getToken();
+  }, []);
 
   // useEffect(() => {
   //   if(ACCESS_TOKEN != 0){
@@ -33,14 +34,14 @@ function Home() {
   //   }
   // }, [ACCESS_TOKEN]);
 
-  // // Get the access token
-  // const getToken = useCallback (() => {
-  //   axios.post(`https://id.twitch.tv/oauth2/token?client_id=${APP_ID}&client_secret=${APP_SECRET}&grant_type=client_credentials`)
-  //   .then((response) => {
-  //     console.log(response.data.access_token);
-  //     setToken(response.data.access_token);
-  //   });
-  // }, []);
+  // Get the access token
+  const getToken = useCallback (() => {
+    axios.post(`https://id.twitch.tv/oauth2/token?client_id=${APP_ID}&client_secret=${APP_SECRET}&grant_type=client_credentials`)
+    .then((response) => {
+      console.log(response.data.access_token);
+      setToken(response.data.access_token);
+    });
+  }, []);
 
   // // Test to search for trending games
   // const searchGames = () => axios({
