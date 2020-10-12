@@ -1,15 +1,65 @@
 .container{
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 80px;
 
 }
 .box{
     float: left;
     margin: 0 auto;
     width: 33%;
-    height: 200px;
+    height: auto;
     
     background: #242323;
     color: #FFF;
+}
+.icon{
+    display: block;
+    width: 25%;
+    max-width: 70px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.title{
+    margin: 0 auto;
+    text-align: center;
+
+    color: #FFF;
+}
+.description{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 50px;
+    padding-left: 25px; padding-right: 25px;
+
+    color: rgb(163, 160, 160);
+    font-size: 19px;
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        width: 90%;
+    }
+    .box{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .icon{
+        width: 50px;
+    }
+
+}
+@media only screen and (max-width: 800px) {
+    .container{
+        width: 90%;
+    }
+    .title{
+        font-size: 22px;
+    }
+    .description{
+        font-size: 18px;
+    }
 }
