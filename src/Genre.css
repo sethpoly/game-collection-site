@@ -1,0 +1,12 @@
+.genre-container{
+    width: 100%;
+}
+.genre-name{
+    float: left;
+    margin: 0 auto;
+    padding-bottom: 0;
+    padding-top: 7px;
+
+    font-size: 12px;
+    color: #FFF;
+}

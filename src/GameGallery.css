@@ -3,28 +3,52 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 .item {
     position: relative;
     display: block;
-    flex: 0 0 25%;
+    flex: 1 1 25%;
+    margin: 5px;
+
+    border-radius: 10px;
+    background: #242323;
 
     transition: transform 500ms;
 }
 .container:focus-within .item,
 .container:hover .item {
-  transform: translateX(-25%);
+  transform: translateX(-10%);
 }
 .item:focus ~ .item,
 .item:hover ~ .item {
-  transform: translateX(25%);
+  transform: translateX(10%);
 }
 .container .item:focus,
 .container .item:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
     z-index: 1;
 }
 .item img {
-    display: block;
-    width: 100%;
+   display: block;
+   max-width: 100%;
+
+   border-top-left-radius: 5px; border-top-right-radius: 5px;
+}
+
+.title-game{
+  padding: 5px;
+  padding-left: 10px;
+  margin-top: 0px;
+
+  color: #FFF;
+}
+
+.heading-genre{
+  float: left;
+  margin: 0 auto;
+  padding-left: 8px;
+
+  color: rgb(128, 123, 123);
+  font-size: 14px;
 }

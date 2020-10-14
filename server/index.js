@@ -12,41 +12,16 @@ let TOKEN = 0;
 let hltb = require('howlongtobeat');
 let hltbService = new hltb.HowLongToBeatService();
 
-app.get('/', (req, res) => {
-    res.send("<h1>Home page</h1>");
-});
-
-// Retrieve (up to) 8 trending games from the igdb api
+// Get trending games from a date range
 app.get('/trending',(req, res) => {
-    // Get access token and save to TOKEN variable
-    axios.post(`https://id.twitch.tv/oauth2/token?client_id=${APP_ID}&client_secret=${APP_SECRET}&grant_type=client_credentials`)
-     .then(response => {
-       TOKEN = response.data.access_token;
+    
+    // Get today's date in yyyy-mm-dd format
+    let min_date = getDateFormatted(0, 1);
+    let max_date = getDateFormatted(1, 12);
 
-       // Post to search for games
-        axios({
-            url: "https://api.igdb.com/v4/games",
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`,
-                'Client-ID': APP_ID
-            },
-            data: `limit 9; fields name,rating,cover,summary,first_release_date; where rating > 80 & rating_count > 200; sort first_release_date desc;`,
-        })
-            .then(response => {
-                res.send(response.data);
-            })
-            .catch(err => {
-                res.send(err);
-        });
-     });
-});
-
-// A much better api that i will use instead
-app.get('/rawg',(req, res) => {
-    // Get access token and save to TOKEN variable
-    axios.get(`https://api.rawg.io/api/games?dates=2019-10-10,2020-10-10&ordering=-added`)
+    // Get most popular games from this year
+    axios.get(`https://api.rawg.io/api/games?dates=${min_date},${max_date}&ordering=-added`)
+    //axios.get(`https://api.rawg.io/api/games?platforms=17&ordering=-added`)
      .then(response => {
         res.send(response.data);
      })
@@ -56,35 +31,6 @@ app.get('/rawg',(req, res) => {
 });
 
 
-
-
-// Retrieve the cover art img for a specific game from the idgb api
-app.get('/cover/:id',(req, res) => {
-    let id = req.params.id;
-    // Get access token and save to TOKEN variable
-    axios.post(`https://id.twitch.tv/oauth2/token?client_id=${APP_ID}&client_secret=${APP_SECRET}&grant_type=client_credentials`)
-     .then(response => {
-       TOKEN = response.data.access_token;
-
-       // Post to search for games
-        axios({
-            url: "https://api.igdb.com/v4/covers",
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`,
-                'Client-ID': APP_ID
-            },
-            data: `limit 1; fields url; where id = ${id};`,
-        })
-            .then(response => {
-                res.send(response.data);
-            })
-            .catch(err => {
-                res.send(err);
-        });
-     });
-});
 
 // Works
 app.get('/hltb', (req, res) => {
@@ -96,3 +42,25 @@ hltbService.search('Nioh').then(result => res.send(result));
 app.listen(3000, () =>{
     console.log('server started on port 3000');
 })
+
+// Get date in yyyy-mm-dd format
+// @param1: either in past or future
+// @param2: months difference
+function getDateFormatted(format, months) {
+    let today = new Date();
+    if(format == 0){ // In past
+        today.setMonth(today.getMonth() - months);
+    }
+    else{
+        today.setMonth(today.getMonth() + months);
+    }
+    today = today.toLocaleDateString("en-US");
+    today_arr = today.split('/').reverse();
+
+    // If single digit, add leading zero
+    if(today_arr[2].toString().length == 1) {
+        today_arr[2] = '0' + today_arr[2];
+    } 
+    today = today_arr[0] + '-' + today_arr[2] + '-' + today_arr[1];
+    return today;
+}

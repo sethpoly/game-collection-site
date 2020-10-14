@@ -1,13 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import './GameGallery.css';
-import {Link} from 'react-router-dom';
+import Genre from './Genre';
 
-function Game({img}) {
+function Game({img, name, genres}) {
 
   return (
-    <div>
-        <a href="#item1" className="item">
+    <div className="item">
+        <a href="#item1">
             <img src={img}></img></a>
+          <h3 className="title-game">{name}</h3>
+          <p className="heading-genre">Genres:</p>
+          {genres.map(genre => (
+            <Genre 
+            name={genre.name}
+            />
+          ))}
     </div>
   );
 }

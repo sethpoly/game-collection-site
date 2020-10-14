@@ -24,7 +24,7 @@ function Login() {
             <input className="input-login" type="text"placeholder="Password"></input>
             <button className="btn-submit">{pageType ? 'LOGIN' : 'SUBMIT'}</button>
             {pageType ? <p>Don't have an account? 
-            <a className="toggle-login" onClick={() => setPageType(!pageType)}> Sign Up.</a></p> : <p classname="text-white">Have an account? 
+            <a className="toggle-login" onClick={() => setPageType(!pageType)}> Sign Up.</a></p> : <p className="text-white">Have an account? 
             <a className="toggle-login" onClick={() => setPageType(!pageType)}>  Login.</a></p>}
         </div>
     </div>
