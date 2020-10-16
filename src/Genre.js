@@ -1,11 +1,11 @@
 import React from 'react';
-import './Genre.css';
+import './Game.css';
 
 function Genre({name}) {
 
   return (
     <div className="genre-container">
-       <p className="genre-name">{name}</p>
+       <p className="detail-value">{name}</p>
     </div>
   );
 }

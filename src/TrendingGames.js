@@ -31,7 +31,8 @@ function TrendingGames() {
             <Game 
               img={game.background_image}
               name={game.name}
-              genres={game.genres}/>
+              genres={game.genres}
+              release_date={game.released}/>
           ))}
         </div>
       </div>
