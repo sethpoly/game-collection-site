@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './GameGallery.css';
 import './Game.css';
 import Genre from './Genre';
+import add_icon from './Images/icon-add.svg';
 
 function Game({img, name, genres, release_date}) {
 
@@ -10,6 +11,8 @@ function Game({img, name, genres, release_date}) {
         <a href="#item1">
             <img src={img}></img></a>
           <h3 className="title-game">{name}</h3>
+
+          <input type='submit' value="Add" className="icon-btn-add"/>
 
           <div className="detail-row">
             <p className="detail-heading">Genres:</p>

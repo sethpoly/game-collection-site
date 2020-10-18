@@ -31,7 +31,9 @@
 .title-game{
   padding: 5px;
   padding-left: 10px;
+  padding-bottom: 10px;
   margin-top: 0px;
+  margin-bottom: 0px;
 
   color: #FFF;
 }

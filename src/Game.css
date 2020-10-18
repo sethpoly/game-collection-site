@@ -4,11 +4,6 @@
     float: left;
     display: block;
 }
-
-
-.genre-container{
-    
-}
 .detail-value{
     display: block;
     margin: 0 auto;
@@ -27,3 +22,22 @@
     color: rgb(128, 123, 123);
     font-size: 14px;
   }
+
+.icon-btn-add{
+    background: url('Images/icon-add.svg') no-repeat left;
+    background-position-x: 10%;
+    background-position-y: 60%;
+    padding-left: 26px;
+    margin-left: 9px;
+    height: 30px;
+    width: 70px;
+
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(63, 61, 61);
+}
+.icon-btn-add:hover{
+    cursor: pointer;
+    border: 1px solid #FFF;
+}
