@@ -30,6 +30,20 @@ app.get('/trending',(req, res) => {
 });
 });
 
+// Get game by id
+app.get('/games/:id',(req, res) => {
+    
+    const id = req.params.id;
+    // Get most popular games from this year
+    axios.get(`https://api.rawg.io/api/games/${id}`)
+     .then(response => {
+        res.send(response.data);
+     })
+     .catch(err => {
+        res.send(err);
+});
+});
+
 
 
 // Works
