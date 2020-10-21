@@ -29,6 +29,8 @@ function TrendingGames() {
         <div className="container">
           {games.map(game => (
             <Game 
+              key={game.id}
+              id={game.id}
               img={game.background_image}
               name={game.name}
               genres={game.genres}

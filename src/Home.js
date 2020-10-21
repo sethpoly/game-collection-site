@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import './Home.css';
 import Nav from './Nav';
-import GameGallery from './GameGallery';
 import {Link} from 'react-router-dom';
 import HomeDefault from './HomeDefault';
 import TrendingGames from './TrendingGames';

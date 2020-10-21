@@ -2,14 +2,18 @@ import React, {useEffect, useState} from 'react';
 import './GameGallery.css';
 import './Game.css';
 import Genre from './Genre';
+import { Link } from 'react-router-dom';
 import add_icon from './Images/icon-add.svg';
 
-function Game({img, name, genres, release_date}) {
+function Game({id, img, name, genres, release_date}) {
 
   return (
     <div className="item">
-        <a href="#item1">
-            <img src={img}></img></a>
+      <Link to= {{pathname: `/gamedetailpage/${id}`}}>
+        <a>
+          <img src={img}></img>
+        </a>
+      </Link>
           <h3 className="title-game">{name}</h3>
 
           <input type='submit' value="Add" className="icon-btn-add"/>
@@ -18,6 +22,7 @@ function Game({img, name, genres, release_date}) {
             <p className="detail-heading">Genres:</p>
             {genres.map(genre => (
               <Genre 
+              key={genre.id}
               name={genre.name}
               />
             ))}
