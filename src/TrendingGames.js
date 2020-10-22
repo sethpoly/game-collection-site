@@ -21,7 +21,6 @@ function TrendingGames() {
     console.log(games);
   }, [games]);
 
-
   return (
     <div>
       <div className="trending-games">

@@ -3,7 +3,9 @@ import './Home.css';
 import Nav from './Nav';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import GameHeading from './GameHeading';
 
+// {Route} => The detail page of a specific game chosen
 function GameDetailPage(props) {
 
   // Retrieve the id for the game selected
@@ -26,6 +28,9 @@ console.log(game);
   return (
     <div>
       <Nav/>
+      <GameHeading
+      name = {game.name}
+      description = {game.description}/>
     </div>
   );
 }
