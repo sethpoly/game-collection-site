@@ -7,7 +7,7 @@ import axios from 'axios';
 function GameHeading({name, background_img}) {
   return (
     <div className="detail-heading-container">
-       <h1 className="gameTitle">{name}</h1>
+       
        <img className="gameImg"src={background_img}></img>
     </div>
   );

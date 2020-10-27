@@ -1,8 +1,10 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const morgan = require('morgan')
 const app = express();
 app.use(cors());
+app.use(morgan('dev'))
 
 const APP_ID = "ateo54zxrf0g2skykiad16p6xiwtkp";
 const APP_SECRET = "gohjb2bnw7l405gj9mhsrq574co9uv";
