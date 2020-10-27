@@ -30,7 +30,7 @@ console.log(game);
       <Nav/>
       <GameHeading
       name = {game.name}
-      description = {game.description}/>
+      background_img = {game.background_image}/>
     </div>
   );
 }
