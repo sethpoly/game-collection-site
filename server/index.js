@@ -77,6 +77,10 @@ function getDateFormatted(format, months) {
     if(today_arr[2].toString().length == 1) {
         today_arr[2] = '0' + today_arr[2];
     } 
+    if(today_arr[1].toString().length == 1) {
+        today_arr[1] = '0' + today_arr[1];
+    } 
+    
     today = today_arr[0] + '-' + today_arr[2] + '-' + today_arr[1];
     return today;
 }
