@@ -11,7 +11,7 @@ function GameHeading({name, background_img}) {
         <img className="gameImg"src={background_img}></img>
        </div>
        <div className="container-overlay">
-        <h1>Heading</h1>
+        <h1 className="game-title">{name}</h1>
 
 
        </div>
